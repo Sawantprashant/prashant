@@ -1,0 +1,10 @@
+express=require('express')
+app=express();
+path=require('path');
+staticholder=express.static(path.join(__dirname,"public"));
+app.use(staticholder);
+app.use('/',function(req,resp){
+    resp.sendFile(path.join(__dirname+'/index.html'));
+});
+app.listen(3001);
+console.log("listening");
